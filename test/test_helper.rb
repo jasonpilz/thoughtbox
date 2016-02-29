@@ -19,3 +19,15 @@ class ActionDispatch::IntegrationTest
     reset_session!
   end
 end
+
+DatabaseCleaner.strategy = :transaction
+
+class Minitest::Spec
+  def setup
+    DatabaseCleaner.start
+  end
+
+  def teardown
+    DatabaseCleaner.clean
+  end
+end
