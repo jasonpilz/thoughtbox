@@ -18,6 +18,23 @@ class ActionDispatch::IntegrationTest
   def teardown
     reset_session!
   end
+
+  def login_user
+    create_user
+
+    visit login_path
+
+    fill_in "Email", with: "jasonpilz@gmail.com"
+    fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
+
+    click_button "Login"
+  end
+
+  def create_user
+    jason = User.create!(email: "jasonpilz@gmail.com",
+                         password: "password")
+  end
 end
 
 DatabaseCleaner.strategy = :transaction

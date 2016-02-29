@@ -1,1 +1,30 @@
 <h4>Welcome, <%= @user.email %></h4> <%= link_to "Sign Out", logout_path, method: :delete %>
+<br><br>
+
+<% if flash[:error].present? %>
+  <div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<div class="jumbotron" id="create-link">
+  <h2>Create Link</h2>
+  <%= bootstrap_form_for :link, :url => links_path  do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_field :url %>
+    <%= f.submit "Create" %>
+  <% end %>
+  <br>
+
+  <div class="centered well">
+    <h2>Links</h2>
+    <% @user.links.each do |link| %>
+      <div class="well">
+        <%= link.title %>: <%= link.url %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
