@@ -19,6 +19,7 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
 
     fill_in "Email", with: "jasonpilz@gmail.com"
     fill_in "Password", with: "password"
+    fill_in "Password confirmation", with: "password"
 
     click_button "Login"
 
@@ -26,7 +27,11 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Welcome, jasonpilz@gmail.com")
   end
 
-  # test "new user can signup" do
-  #   binding.pry
-  # end
+  test "new user can signup" do
+    visit login_path
+
+    click_link "Sign Up"
+
+    assert_equal(new_user_path, current_path)
+  end
 end
