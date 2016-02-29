@@ -21,5 +21,4 @@ class UserCanViewLinksTest < ActionDispatch::IntegrationTest
     assert page.has_content?("today")
     assert page.has_content?("http://today.turing.io/outlines/2016-02-29/")
   end
-
 end

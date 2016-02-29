@@ -8,4 +8,14 @@
     <%= f.text_field :url %>
     <%= f.submit "Create" %>
   <% end %>
+
+  <div class="centered well">
+    <h2>Links</h2>
+    <% @links.each do |link| %>
+      <div class="well">
+        <%= link.title %>: <%= link.url %>
+      </div>
+    <% end %>
+  </div>
+
 </div>

@@ -13,6 +13,7 @@ gem 'unicorn'
 gem 'database_cleaner'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'validate_url'
 
 group :development, :test do
   gem 'byebug'
