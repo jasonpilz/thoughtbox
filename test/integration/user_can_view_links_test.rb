@@ -17,8 +17,9 @@ class UserCanViewLinksTest < ActionDispatch::IntegrationTest
 
     click_button "Login"
 
-    save_and_open_page
     assert_equal(root_path, current_path)
+    assert page.has_content?("today")
+    assert page.has_content?("http://today.turing.io/outlines/2016-02-29/")
   end
 
 end
