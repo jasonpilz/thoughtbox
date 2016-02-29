@@ -3,8 +3,8 @@ require 'test_helper'
 class UserLoginTest < ActionDispatch::IntegrationTest
 
   def setup
-    @jason = User.create!(email: "jasonpilz@gmail.com",
-                         password: "password")
+    User.create!(email: "jasonpilz@gmail.com",
+                 password: "password")
   end
 
   test "guest user gets redirected to login page" do
