@@ -7,5 +7,4 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :links, only: [:new, :create, :update, :destroy]
-
 end
